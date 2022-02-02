@@ -8,12 +8,23 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-20.04
+            dist_target:
+          - os: ubuntu-20.04
+            dist_target: win32
+          - os: macos-11
+            dist_target:
+    runs-on: ${{ matrix.os }}
+    name: "${{ matrix.os }}:${{ matrix.dist_target }}"
     steps:
-    - uses: actions/checkout@v2
-      
+    - name: Check out repository
+      uses: actions/checkout@v2
     - name: Compile it
       run: make
+
 
