@@ -21,7 +21,7 @@ jobs:
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
-    - run: gcc -v
+    - run: uname
     - name: Compile it
       run: make
     - name: Run it
