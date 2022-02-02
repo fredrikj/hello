@@ -14,16 +14,14 @@ jobs:
       matrix:
         include:
           - os: ubuntu-20.04
-            dist_target:
-          - os: ubuntu-20.04
-            dist_target: win32
+          - os: windows-2019
           - os: macos-11
-            dist_target:
     runs-on: ${{ matrix.os }}
     name: "${{ matrix.os }}:${{ matrix.dist_target }}"
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
+    - run: gcc -v
     - name: Compile it
       run: make
     - name: Run it
