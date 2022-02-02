@@ -14,8 +14,11 @@ jobs:
       matrix:
         include:
           - os: ubuntu-20.04
+            executable: HelloLinux
           - os: windows-2019
+            executable: HelloWindows.exe
           - os: macos-11
+            executable: HelloDarwin
     runs-on: ${{ matrix.os }}
     name: "${{ matrix.os }}:${{ matrix.dist_target }}"
     steps:
@@ -25,6 +28,6 @@ jobs:
     - name: Compile it
       run: make
     - name: Run it
-      run: ./Hello
+      run: ./${{ matrix.executable }}
 
 
