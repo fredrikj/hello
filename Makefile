@@ -1,20 +1,19 @@
 UNAME := $(shell uname)
 ifeq ($(UNAME), Linux)
-	EXT = 
+	EXT = Linux
 else ifeq ($(UNAME), Darwin)
-	EXT = 
+	EXT = Darwin
 else 
-	EXT = .exe
+	EXT = Windows.exe
 endif
 
 CC      = gcc
-CFLAGS  =
 RM      = rm -f
 
 default: Hello
 
 Hello: Hello.c
-	$(CC) $(CFLAGS) -o Hello$(EXT) Hello.c
+	$(CC) -o Hello$(EXT) Hello.c
 
 clean:
 	$(RM) Hello
