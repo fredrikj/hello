@@ -16,11 +16,11 @@ jobs:
       matrix:
         include:
           - os: ubuntu-20.04
-            executable: HelloLinux
+            executable: Hello-linux
           - os: windows-2019
-            executable: HelloWindows.exe
+            executable: Hello-win32.exe
           - os: macos-11
-            executable: HelloDarwin
+            executable: Hello-darwin
     runs-on: ${{ matrix.os }}
     name: "${{ matrix.os }}:${{ matrix.dist_target }}"
     steps:
