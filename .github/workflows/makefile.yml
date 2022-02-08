@@ -22,7 +22,7 @@ jobs:
           - os: macos-11
             executable: Hello-darwin
     runs-on: ${{ matrix.os }}
-    name: "${{ matrix.os }}:${{ matrix.dist_target }}"
+    name: "${{ matrix.os }}"
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
